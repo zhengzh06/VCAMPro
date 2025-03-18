@@ -31,6 +31,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleDebug --stacktrace
 
+      - name: Check Java & SDK
+        run: |
+          java -version
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list
+
       - uses: actions/upload-artifact@v4
         with:
           name: debug-apk
